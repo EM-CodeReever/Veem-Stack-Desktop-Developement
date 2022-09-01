@@ -62,7 +62,7 @@ async function createWindow() {
     center : true,
     width : 1280,
     height : 720,
-    autoHideMenuBar : true,
+    // autoHideMenuBar : true,
     webPreferences: {
       preload,
       // Warning: Enable nodeIntegration and disable contextIsolation is not secure in production
@@ -78,7 +78,7 @@ async function createWindow() {
   } else {
     win.loadURL(url)
     // Open devTool if the app is not packaged
-    win.webContents.openDevTools({ mode: "undocked", activate: true })
+    win.webContents.openDevTools({mode:'detach'})
   }
 
   // Test actively push message to the Electron-Renderer
