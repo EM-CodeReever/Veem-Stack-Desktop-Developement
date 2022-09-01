@@ -28,4 +28,14 @@ export default class DataService {
             console.log(error);
         }
     }
+    static async login(user:User){
+        try {
+            const res = await axios.post(URL + `/login`,{
+                user
+            })
+            return res.data
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }
