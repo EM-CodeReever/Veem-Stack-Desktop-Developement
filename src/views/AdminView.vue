@@ -1,46 +1,83 @@
 <template>
-    <NavigatorComponent pageName="Admin">
-        <div class="flex flex-col w-full">
-            <p class="text-3xl font-bold text-center my-5">All Users</p>
+    <NavigatorComponent pageName="Administration">
+        <div class="flex flex-col w-full px-5">
+            <span class="flex justify-between items-center my-8">
+                <p class="text-3xl font-bold">Manage Users</p>
+                <span class="flex justify-end gap-x-2">
+                    <select class="select select-sm select-bordered rounded w-52 max-w-xs">
+                        <option disabled selected>Filter by role</option>
+                        <option v-for="role in Role">{{role}}</option>
+                    </select>
+                    <input type="text" placeholder="Search user" class="input input-sm rounded input-bordered w-52" />
+                    
+                    <button class="btn btn-sm rounded hover:text-yellow-500">
+                        <svg class="-ml-2 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                        Add User
+                    </button>
+                </span>
+            </span>
             <div class="rounded w-1/1 h-fit  flex flex-col gap-y-3 justify-start ">
-                <div class="rounded w-1/1 h-fit items-center flex justify-between p-3 bg-gray-300" v-for="u,i in users" :key="i">
-                    <p class="font-bold text-gray-800">{{u.firstName + ' ' + u.lastName}}</p>
-                    <button class="btn btn-ghost btn-sm bg-gray-800 hover:bg-gray-700 hover:text-yellow-500">view</button>
-                </div>
+                <UserRowComponent 
+                :users="users" 
+                @user-view="(data) => {selectedUser = data}"
+                />
             </div>
-        </div>     
+        </div>  
+         <ViewUserModal :user="selectedUser"/>
     </NavigatorComponent>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
 import NavigatorComponent from "../components/NavigatorComponent.vue";
 import DataService from "../DataService";
-import type { User } from "@prisma/client";
+import { User, Role, Gender } from "@prisma/client";
+import UserRowComponent from "../components/UserRowComponent.vue";
+import ViewUserModal from "../components/ViewUserModal.vue";
+
 
 export default defineComponent({
     name:'AdminView',
-    components:{NavigatorComponent},
+    components:{ NavigatorComponent, UserRowComponent, ViewUserModal },
     data(){
         return{
-            users : <User[]>([])
+            users : <User[]>([]),
+            selectedUser : <User>({}),
+            Role,
+            Gender,
         }
     },
-    methods:{},
+    methods:{
+        viewUser(){
+            console.log('user');
+            
+        },
+        deleteUser(){
+
+        },
+        editUser(){
+
+        }
+    },
     async created(){
-        console.log('created triggered');
         
         let res = await DataService.getAllUsers()
         this.users = res as User[]
         console.log(res);
-        console.log('get all users triggered and done i think');
         
         // const person : User = {
-        //     email : 'email@mail.com',
-        //     firstName : 'no idea',
-        //     lastName : 'idk',
-        //     id : '3'
+        //     email : 'test@account.com',
+        //     firstName : 'Test',
+        //     lastName : 'Account',
+        //     id : '',
+        //     passwordHash : 'test123',
+        //     role : Role.MANAGER,
+        //     userName : 'test',
+        //     gender : Gender.MALE,
+        //     phoneNumber : '1234567890'
         // }
-        // let res = await DataService.createUser(person)
+        // let result = await DataService.createUser(person)
+        // console.log(result);
+        
     },
 })
 </script>
