@@ -1,0 +1,10 @@
+<template>
+    <NavigatorComponent pageName="Settings">
+        <p class="text-2xl txt-center font-bold">XD</p>
+    </NavigatorComponent>
+</template>
+<script setup lang="ts">
+import NavigatorComponent from '../components/NavigatorComponent.vue';
+
+
+</script>
