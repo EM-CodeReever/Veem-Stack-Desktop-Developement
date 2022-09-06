@@ -3,6 +3,12 @@ import { currentUserStore } from '../stores/User';
 import HomeView from '../views/HomeView.vue';
 import AdminView from '../views/AdminView.vue';
 import EditUserView from '../views/EditUserView.vue'
+import MovieView from '../views/MovieView.vue'
+import BookView from '../views/BookView.vue'
+import SeriesView from '../views/SeriesView.vue'
+import ManageContentView from '../views/ManageContentView.vue'
+import YourReviews from '../views/YourReviews.vue'
+import SettingsView from '../views/SettingsView.vue'
 import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
 
@@ -27,7 +33,7 @@ const router = createRouter({
     {
       path: '/register',
       name: 'register',
-      meta: {auth: true},
+      meta: {auth: false},
       component: RegisterView
     },
     {
@@ -41,7 +47,43 @@ const router = createRouter({
       name: 'edit-user',
       meta: {auth: true},
       component: EditUserView
-  },
+    },
+    {
+      path: '/movies',
+      name: 'movies',
+      meta: {auth: true},
+      component: MovieView
+    },
+    {
+      path: '/series',
+      name: 'series',
+      meta: {auth: true},
+      component: SeriesView
+    },
+    {
+      path: '/books',
+      name: 'books',
+      meta: {auth: true},
+      component: BookView
+    },
+    {
+      path: '/manage',
+      name: 'manage',
+      meta: {auth: true},
+      component: ManageContentView
+    },
+    {
+      path: '/your-reviews',
+      name: 'your-reviews',
+      meta: {auth: true},
+      component: YourReviews
+    },
+    {
+      path: '/settings',
+      name: 'settings',
+      meta: {auth: true},
+      component: SettingsView
+    },
 ]   
 })
 
