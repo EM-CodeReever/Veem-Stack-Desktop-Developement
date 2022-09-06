@@ -19,7 +19,7 @@
         <p class="text-error text-sm italic">{{loginError}}</p>
         <span class="flex justify-between items-center mt-8">
             <span>
-                <a href="#" class="link hover:text-indigo-600 no-underline">Register</a>
+                <a href="/register" class="link hover:text-indigo-600 no-underline">Register</a>
                  | 
                 <a href="#" class="link hover:text-indigo-600 no-underline">Reset Password</a>
             </span>

@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="px-5 my-5">
-                <p class="text-2xl my-5 font-semibold">Popular Series</p>
+                <p class="text-2xl my-5 font-semibold">Popular Movies</p>
                 <div class="flex gap-x-3 justify-start overflow-x-clip">
                     <FilmOrSeriesComponent type="MOVIE" v-for="i in 5" />
                 </div>

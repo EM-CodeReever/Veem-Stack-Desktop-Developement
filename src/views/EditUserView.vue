@@ -15,7 +15,7 @@
                         <label class="label">
                             <span class="label-text font-thin">Last Name</span>
                         </label>
-                        <input type="text" :value="user.lastName" class="input font-medium input-bordered w-full"/>
+                        <input type="text" v-model="user.lastName" class="input font-medium input-bordered w-full"/>
                     </div>
                     <div class="w-full col-span-1">
                         <label class="label">
