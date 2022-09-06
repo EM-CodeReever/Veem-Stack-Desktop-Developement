@@ -38,25 +38,41 @@ export default class Routes{
         })
         .post(async (req:Request, res:Response)=>{
             try{
-                console.log(req.body.newUser);
                 const user = req.body.newUser as User
                 let hash = await bcrypt.hash(user.passwordHash as string, 10)
-                const result = await prisma.user.create({
-                    data : {
-                        email : user.email,
-                        phoneNumber : user.phoneNumber,
-                        firstName : user.firstName,
-                        lastName : user.lastName,
+                let userNameCheck = await prisma.user.findFirst({
+                    where : {
                         userName : user.userName,
-                        role : user.role,
-                        gender : user.gender,
-                        passwordHash : hash
                     },
                 })
-                res.json({
-                    message : 'done',
-                    result
+                let emailCheck = await prisma.user.findFirst({
+                    where : {
+                        email : user.email,
+                    },
                 })
+                if(!userNameCheck && !emailCheck){
+                    const result = await prisma.user.create({
+                        data : {
+                            email : user.email,
+                            phoneNumber : user.phoneNumber,
+                            firstName : user.firstName,
+                            lastName : user.lastName,
+                            userName : user.userName,
+                            role : user.role,
+                            gender : user.gender,
+                            passwordHash : hash
+                        },
+                    })
+                    res.json({
+                        status : true,
+                        message : 'done',
+                        result
+                    })
+                }else{
+                    if(userNameCheck){
+                        res.json({status : false, message : 'Username already taken'})
+                    }else if(emailCheck){res.json({status : false, message : 'An account with this email already exists'})}
+                }
             }catch(err){
                 console.log(err);
             }
