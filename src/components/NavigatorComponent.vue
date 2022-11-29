@@ -82,11 +82,13 @@
 <script setup lang="ts">
 import { useRouter, useRoute } from 'vue-router'
 import { currentUserStore } from '../stores/User';
+import { themeChange } from 'theme-change';
+themeChange(false)
 const currentUser = currentUserStore()
 const router = useRouter()
 const route = useRoute()
 console.log(currentUser.fullName);
-
+let theme:string = 'synthwave'
 function Logout(){
     currentUser.$reset()
     if(route.path == '/'){
@@ -98,6 +100,11 @@ function Logout(){
 const props = defineProps<{
     pageName : string
 }>()
+
+function change(){
+    theme = 'emerald'
+}
+
 </script>
 <style scoped>
 .height-limit {

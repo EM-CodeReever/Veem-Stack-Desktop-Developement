@@ -6,32 +6,31 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    screens: {
+      'sm': '640px',
+      // => @media (min-width: 640px) { ... }
+
+      'md': '768px',
+      // => @media (min-width: 768px) { ... }
+
+      '2col': '820px',
+      // => @media (min-width: 820px) { ... }
+
+      'lg': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'xl': '1280px',
+      // => @media (min-width: 1280px) { ... }
+
+      '2xl': '1536px',
+      // => @media (min-width: 1536px) { ... }
+
+      '4col': '1650px',
+      // => @media (min-width: 1650px) { ... }
+    }
   },
   plugins: [require('daisyui')],
   daisyui: {
-    themes: ["night",
-    {
-      mytheme: {
-          
-        "primary": "#fb7185",
-                 
-        "secondary": "#4b5563",
-                 
-        "accent": "#38bdf8",
-                 
-        "neutral": "#1B161D",
-                 
-        "base-100": "#FCFCFD",
-                 
-        "info": "#96D0DF",
-                 
-        "success": "#10b981",
-                 
-        "warning": "#F4AE0B",
-                 
-        "error": "#F43A25",
-      },
-    }
-  ],
+    themes: ["light", "dark", "cupcake", "bumblebee", "emerald", "corporate", "synthwave", "retro", "cyberpunk", "valentine", "halloween", "garden", "forest", "aqua", "lofi", "pastel", "fantasy", "wireframe", "black", "luxury", "dracula", "cmyk", "autumn", "business", "acid", "lemonade", "night", "coffee", "winter"],
   },
 }

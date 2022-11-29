@@ -1,6 +1,6 @@
 <template>
     <span class="flex justify-between gap-x-3 p-10">
-            <p class="text-2xl txt-center font-bold justify-start">{{props.name}} Catalogue</p>
+            <p class="text-2xl txt-center font-bold justify-start">{{props.name}}</p>
             <span class="flex gap-x-3">
                 <span class="flex items-center">
                     <input type="text" class="input input-bordered rounded-r-none input-sm"/>
@@ -20,4 +20,6 @@
 let props = defineProps<{
     name : string,
 }>()
+
+
 </script>

@@ -62,6 +62,7 @@ async function createWindow() {
     center : true,
     width : 1280,
     height : 720,
+    minWidth : 950,
     // autoHideMenuBar : true,
     webPreferences: {
       preload,

@@ -9,7 +9,7 @@
             <p class="text-xs">If a dog chews shoes whose shoes does he choose? If a dog chews shoes whose shoes does he choose?If a dog chews shoes whose shoes does he choose?If a dog chews shoes whose shoes does he choose? If a dog chews shoes whose shoes does he choose?</p>
             <div class="card-actions items-center justify-between">
                 <span class="badge p-3 rounded bg-base-300">Reviews: 657</span>
-                <button class="btn btn-primary btn-sm">view</button>
+                <button class="btn btn-primary btn-sm" @click="$router.push('/content/1')">view</button>
             </div>
         </div>
         </Transition>

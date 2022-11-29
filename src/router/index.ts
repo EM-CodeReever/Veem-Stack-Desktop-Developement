@@ -9,6 +9,7 @@ import SeriesView from '../views/SeriesView.vue'
 import ManageContentView from '../views/ManageContentView.vue'
 import YourReviews from '../views/YourReviews.vue'
 import SettingsView from '../views/SettingsView.vue'
+import ContentView from '../views/ContentView.vue'
 import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
 
@@ -77,6 +78,12 @@ const router = createRouter({
       name: 'your-reviews',
       meta: {auth: true},
       component: YourReviews
+    },
+    {
+      path: '/content/:id?',
+      name: 'content',
+      meta: {auth: true},
+      component: ContentView
     },
     {
       path: '/settings',
