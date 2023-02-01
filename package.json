@@ -20,7 +20,7 @@
     "@types/express": "^4.17.13",
     "@vitejs/plugin-vue": "^3.0.1",
     "autoprefixer": "^10.4.8",
-    "electron": "^20.0.2",
+    "electron": "^22.1.0",
     "electron-builder": "^23.3.3",
     "postcss": "^8.4.16",
     "prisma": "^4.3.0",
